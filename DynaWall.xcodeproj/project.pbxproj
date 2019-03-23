@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FDD21EAE22464586008251A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21EAD22464586008251A8 /* AppDelegate.swift */; };
+		FDD21EB022464586008251A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21EAF22464586008251A8 /* ViewController.swift */; };
+		FDD21EB22246458A008251A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD21EB12246458A008251A8 /* Assets.xcassets */; };
+		FDD21EB52246458A008251A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD21EB32246458A008251A8 /* Main.storyboard */; };
+		FDD21EC12246458A008251A8 /* DynaWallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21EC02246458A008251A8 /* DynaWallTests.swift */; };
+		FDD21ECC2246458A008251A8 /* DynaWallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21ECB2246458A008251A8 /* DynaWallUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDD21EBD2246458A008251A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDD21EA222464586008251A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDD21EA922464586008251A8;
+			remoteInfo = DynaWall;
+		};
+		FDD21EC82246458A008251A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDD21EA222464586008251A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDD21EA922464586008251A8;
+			remoteInfo = DynaWall;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FDD21EAA22464586008251A8 /* DynaWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynaWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD21EAD22464586008251A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FDD21EAF22464586008251A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FDD21EB12246458A008251A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDD21EB42246458A008251A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FDD21EB62246458A008251A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDD21EB72246458A008251A8 /* DynaWall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DynaWall.entitlements; sourceTree = "<group>"; };
+		FDD21EBC2246458A008251A8 /* DynaWallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynaWallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD21EC02246458A008251A8 /* DynaWallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynaWallTests.swift; sourceTree = "<group>"; };
+		FDD21EC22246458A008251A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDD21EC72246458A008251A8 /* DynaWallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynaWallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD21ECB2246458A008251A8 /* DynaWallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynaWallUITests.swift; sourceTree = "<group>"; };
+		FDD21ECD2246458A008251A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDD21EA722464586008251A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD21EB92246458A008251A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD21EC42246458A008251A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDD21EA122464586008251A8 = {
+			isa = PBXGroup;
+			children = (
+				FDD21EAC22464586008251A8 /* DynaWall */,
+				FDD21EBF2246458A008251A8 /* DynaWallTests */,
+				FDD21ECA2246458A008251A8 /* DynaWallUITests */,
+				FDD21EAB22464586008251A8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDD21EAB22464586008251A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDD21EAA22464586008251A8 /* DynaWall.app */,
+				FDD21EBC2246458A008251A8 /* DynaWallTests.xctest */,
+				FDD21EC72246458A008251A8 /* DynaWallUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDD21EAC22464586008251A8 /* DynaWall */ = {
+			isa = PBXGroup;
+			children = (
+				FDD21EAD22464586008251A8 /* AppDelegate.swift */,
+				FDD21EAF22464586008251A8 /* ViewController.swift */,
+				FDD21EB12246458A008251A8 /* Assets.xcassets */,
+				FDD21EB32246458A008251A8 /* Main.storyboard */,
+				FDD21EB62246458A008251A8 /* Info.plist */,
+				FDD21EB72246458A008251A8 /* DynaWall.entitlements */,
+			);
+			path = DynaWall;
+			sourceTree = "<group>";
+		};
+		FDD21EBF2246458A008251A8 /* DynaWallTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDD21EC02246458A008251A8 /* DynaWallTests.swift */,
+				FDD21EC22246458A008251A8 /* Info.plist */,
+			);
+			path = DynaWallTests;
+			sourceTree = "<group>";
+		};
+		FDD21ECA2246458A008251A8 /* DynaWallUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FDD21ECB2246458A008251A8 /* DynaWallUITests.swift */,
+				FDD21ECD2246458A008251A8 /* Info.plist */,
+			);
+			path = DynaWallUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDD21EA922464586008251A8 /* DynaWall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDD21ED02246458A008251A8 /* Build configuration list for PBXNativeTarget "DynaWall" */;
+			buildPhases = (
+				FDD21EA622464586008251A8 /* Sources */,
+				FDD21EA722464586008251A8 /* Frameworks */,
+				FDD21EA822464586008251A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynaWall;
+			productName = DynaWall;
+			productReference = FDD21EAA22464586008251A8 /* DynaWall.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FDD21EBB2246458A008251A8 /* DynaWallTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDD21ED32246458A008251A8 /* Build configuration list for PBXNativeTarget "DynaWallTests" */;
+			buildPhases = (
+				FDD21EB82246458A008251A8 /* Sources */,
+				FDD21EB92246458A008251A8 /* Frameworks */,
+				FDD21EBA2246458A008251A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDD21EBE2246458A008251A8 /* PBXTargetDependency */,
+			);
+			name = DynaWallTests;
+			productName = DynaWallTests;
+			productReference = FDD21EBC2246458A008251A8 /* DynaWallTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FDD21EC62246458A008251A8 /* DynaWallUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDD21ED62246458A008251A8 /* Build configuration list for PBXNativeTarget "DynaWallUITests" */;
+			buildPhases = (
+				FDD21EC32246458A008251A8 /* Sources */,
+				FDD21EC42246458A008251A8 /* Frameworks */,
+				FDD21EC52246458A008251A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDD21EC92246458A008251A8 /* PBXTargetDependency */,
+			);
+			name = DynaWallUITests;
+			productName = DynaWallUITests;
+			productReference = FDD21EC72246458A008251A8 /* DynaWallUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDD21EA222464586008251A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = hyperionStudios;
+				TargetAttributes = {
+					FDD21EA922464586008251A8 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FDD21EBB2246458A008251A8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FDD21EA922464586008251A8;
+					};
+					FDD21EC62246458A008251A8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FDD21EA922464586008251A8;
+					};
+				};
+			};
+			buildConfigurationList = FDD21EA522464586008251A8 /* Build configuration list for PBXProject "DynaWall" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDD21EA122464586008251A8;
+			productRefGroup = FDD21EAB22464586008251A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDD21EA922464586008251A8 /* DynaWall */,
+				FDD21EBB2246458A008251A8 /* DynaWallTests */,
+				FDD21EC62246458A008251A8 /* DynaWallUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDD21EA822464586008251A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD21EB22246458A008251A8 /* Assets.xcassets in Resources */,
+				FDD21EB52246458A008251A8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD21EBA2246458A008251A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD21EC52246458A008251A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDD21EA622464586008251A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD21EB022464586008251A8 /* ViewController.swift in Sources */,
+				FDD21EAE22464586008251A8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD21EB82246458A008251A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD21EC12246458A008251A8 /* DynaWallTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD21EC32246458A008251A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD21ECC2246458A008251A8 /* DynaWallUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDD21EBE2246458A008251A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDD21EA922464586008251A8 /* DynaWall */;
+			targetProxy = FDD21EBD2246458A008251A8 /* PBXContainerItemProxy */;
+		};
+		FDD21EC92246458A008251A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDD21EA922464586008251A8 /* DynaWall */;
+			targetProxy = FDD21EC82246458A008251A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FDD21EB32246458A008251A8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDD21EB42246458A008251A8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FDD21ECE2246458A008251A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FDD21ECF2246458A008251A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FDD21ED12246458A008251A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DynaWall/DynaWall.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X25D82Z6C8;
+				INFOPLIST_FILE = DynaWall/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWall;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		FDD21ED22246458A008251A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DynaWall/DynaWall.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X25D82Z6C8;
+				INFOPLIST_FILE = DynaWall/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWall;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		FDD21ED42246458A008251A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X25D82Z6C8;
+				INFOPLIST_FILE = DynaWallTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DynaWall.app/Contents/MacOS/DynaWall";
+			};
+			name = Debug;
+		};
+		FDD21ED52246458A008251A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X25D82Z6C8;
+				INFOPLIST_FILE = DynaWallTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DynaWall.app/Contents/MacOS/DynaWall";
+			};
+			name = Release;
+		};
+		FDD21ED72246458A008251A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X25D82Z6C8;
+				INFOPLIST_FILE = DynaWallUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWallUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = DynaWall;
+			};
+			name = Debug;
+		};
+		FDD21ED82246458A008251A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X25D82Z6C8;
+				INFOPLIST_FILE = DynaWallUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWallUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = DynaWall;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDD21EA522464586008251A8 /* Build configuration list for PBXProject "DynaWall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD21ECE2246458A008251A8 /* Debug */,
+				FDD21ECF2246458A008251A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDD21ED02246458A008251A8 /* Build configuration list for PBXNativeTarget "DynaWall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD21ED12246458A008251A8 /* Debug */,
+				FDD21ED22246458A008251A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDD21ED32246458A008251A8 /* Build configuration list for PBXNativeTarget "DynaWallTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD21ED42246458A008251A8 /* Debug */,
+				FDD21ED52246458A008251A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDD21ED62246458A008251A8 /* Build configuration list for PBXNativeTarget "DynaWallUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD21ED72246458A008251A8 /* Debug */,
+				FDD21ED82246458A008251A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FDD21EA222464586008251A8 /* Project object */;
+}
