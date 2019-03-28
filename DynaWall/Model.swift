@@ -10,10 +10,10 @@ import Cocoa
 
 class tableCellDataModel {
     var rowidx: Int
-    var fileName: String
+    var fileName: URL
     var isForDark: Bool
     var isForLight: Bool
-    init?(row: Int, fileName: String, isForDark: Bool, isForLight: Bool) {
+    init?(row: Int, fileName: URL, isForDark: Bool, isForLight: Bool) {
         if isForLight == true && isForDark == true {
             return nil
         }
@@ -21,6 +21,9 @@ class tableCellDataModel {
         self.fileName = fileName
         self.isForDark = isForDark
         self.isForLight = isForLight
+    }
+    func getUrl() -> URL {
+        return fileName
     }
 }
 

@@ -10,8 +10,8 @@
 import Cocoa
 
 class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegate {
-    
-    var urlArray:[URL] = []
+    var pathArrays:[tableCellDataModel] = []
+//    var urlArray:[URL] = []
     var currentRow:Int = 0
     
     @IBOutlet weak var addPhotoSegment: NSSegmentedControl!
@@ -35,6 +35,7 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
         if dl.string(forKey: "modeSelect") == nil {
             dl.set("Automatic", forKey: "modeSelect")
         }
+        
     }
     
     // MARK: "Create Wallpaper" button is pressed
@@ -57,7 +58,9 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
             if (dialog.runModal() == .OK)
             {
                 for i in dialog.urls {
-                    urlArray.append(i)
+                    let newRow = tableCellDataModel(row: currentRow, fileName: i, isForDark: false, isForLight: false)
+                    pathArrays.append(newRow!)
+                    currentRow+=1
                 }
                 // MARK: Enable '-' Segment if disabled
                 if !addPhotoSegment.isEnabled(forSegment: 1) {
@@ -76,8 +79,8 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
             if selectedRow == -1 {
                     return
             }
-            urlArray.remove(at: selectedRow)
-            if urlArray.count == 0 {
+            pathArrays.remove(at: selectedRow)
+            if pathArrays.count == 0 {
                 addPhotoSegment.setEnabled(false, forSegment: 1)
             }
             pathTable.reloadData()
@@ -86,13 +89,13 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return urlArray.count
+        return pathArrays.count
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         
         if tableColumn!.title == "Images" {
-            return urlArray[row].lastPathComponent
+            return pathArrays[row].getUrl().lastPathComponent
         }
         else {
             return row+1
@@ -100,16 +103,16 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
     }
     func updateImagePreview(forRowPath row: Int)
     {
-        if urlArray.count == 0 {
+        if pathArrays.count == 0 {
             imageWell.image = nil
             return
         }
-        else if row == urlArray.count {
+        else if row == pathArrays.count {
             imageWell.image = nil
             return
         }
         else {
-            imageWell.image = NSImage(contentsOf: urlArray[row])
+            imageWell.image = NSImage(contentsOf: pathArrays[row].getUrl())
         }
         
     }
