@@ -89,6 +89,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FDC41DEE224D3855003A0C1B /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				FDC41DEC224D08AE003A0C1B /* Model.swift */,
+			);
+			name = DataStore;
+			sourceTree = "<group>";
+		};
 		FDD21EA122464586008251A8 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +120,7 @@
 		FDD21EAC22464586008251A8 /* DynaWall */ = {
 			isa = PBXGroup;
 			children = (
+				FDC41DEE224D3855003A0C1B /* DataStore */,
 				FD58C726224A3B2400CC9774 /* Extensions */,
 				FDD21EAD22464586008251A8 /* AppDelegate.swift */,
 				FDD21EAF22464586008251A8 /* ViewController.swift */,
@@ -121,7 +130,6 @@
 				FDD21EB62246458A008251A8 /* Info.plist */,
 				FDD21EB72246458A008251A8 /* DynaWall.entitlements */,
 				FD3A8394224A2CD9008DBFD2 /* HEICMaker.swift */,
-				FDC41DEC224D08AE003A0C1B /* Model.swift */,
 			);
 			path = DynaWall;
 			sourceTree = "<group>";

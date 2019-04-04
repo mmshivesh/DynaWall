@@ -13,7 +13,9 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
     var pathArrays:[tableCellDataModel] = []
 //    var urlArray:[URL] = []
     var currentRow:Int = 0
+    var numberOfPhotosRemaining = 16
     
+    @IBOutlet weak var loadingSpinner: NSProgressIndicator!
     @IBOutlet weak var addPhotoSegment: NSSegmentedControl!
     @IBOutlet weak var createHEICimage: NSButton!
     @IBOutlet weak var imageWell: NSImageView!
@@ -25,7 +27,9 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
         pathTable.delegate = self
         pathTable.dataSource = self
         addPhotoSegment.setEnabled(false, forSegment: 1)
-        
+        createHEICimage.isEnabled = false
+        createHEICimage.title = "Add " + String(numberOfPhotosRemaining) + " images"
+        loadingSpinner.isHidden = true
         // MARK: If the userDefaults is not set for the download location and the mode of obtaining the time zones, set the defaults
         
         let dl = UserDefaults()
@@ -41,12 +45,20 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
     // MARK: "Create Wallpaper" button is pressed
     
     @IBAction func createButtonPressed(_ sender: Any) {
-        
+        for i in 0..<currentRow{
+            print(pathArrays[i].rowidx)
+        }
     }
     
     // MARK: Action to control +/- Segmented control click and to enable/disable '-'
     
     @IBAction func segmentedControlClick(_ sender: Any) {
+        if pathArrays.count == 16 {
+            createHEICimage.isEnabled = true
+        }
+        else {
+            createHEICimage.isEnabled = false
+        }
         if addPhotoSegment.indexOfSelectedItem == 0 {
             let dialog = NSOpenPanel()
             dialog.title = "Select Image file(s)"
@@ -57,10 +69,22 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
             dialog.allowedFileTypes = ["jpg","png","tiff"]
             if (dialog.runModal() == .OK)
             {
-                for i in dialog.urls {
-                    let newRow = tableCellDataModel(row: currentRow, fileName: i, isForDark: false, isForLight: false)
-                    pathArrays.append(newRow!)
-                    currentRow+=1
+                if numberOfPhotosRemaining < dialog.urls.count {
+                    print("Count Exceeds 16")
+                }
+                else {
+                    for i in dialog.urls {
+                        let newRow = tableCellDataModel(row: currentRow, fileName: i, isForDark: false, isForLight: false)
+                        pathArrays.append(newRow!)
+                        currentRow+=1
+                        numberOfPhotosRemaining-=1
+                    }
+                    if numberOfPhotosRemaining != 1 {
+                        createHEICimage.title = "Add " + String(numberOfPhotosRemaining) + " Images"
+                    }
+                    else {
+                        createHEICimage.title = "Add " + String(numberOfPhotosRemaining) + " Image"
+                    }
                 }
                 // MARK: Enable '-' Segment if disabled
                 if !addPhotoSegment.isEnabled(forSegment: 1) {
@@ -72,6 +96,7 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
             {
                 print("No File selected")
             }
+//            print(currentRow)
         }
         else {
             print("To remove row index " + String(pathTable.selectedRow))
@@ -80,11 +105,14 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
                     return
             }
             pathArrays.remove(at: selectedRow)
+            currentRow-=1
             if pathArrays.count == 0 {
                 addPhotoSegment.setEnabled(false, forSegment: 1)
             }
             pathTable.reloadData()
+            loadingSpinner.startAnimation(self.view)
             updateImagePreview(forRowPath: selectedRow)
+//            print(currentRow)
         }
     }
     
@@ -93,30 +121,55 @@ class ViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegat
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        if pathArrays.count == 16 {
+            createHEICimage.isEnabled = true
+            createHEICimage.title = "Create Wallpaper"
+            addPhotoSegment.setEnabled(false, forSegment: 0)
+        }
+        else {
+            createHEICimage.isEnabled = false
+            addPhotoSegment.setEnabled(true, forSegment: 0)
+        }
         
         if tableColumn!.title == "Images" {
             return pathArrays[row].getUrl().lastPathComponent
         }
         else {
-            return row+1
+            return row + 1
         }
     }
+    
+    func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        return
+    }
+    
     func updateImagePreview(forRowPath row: Int)
     {
-        if pathArrays.count == 0 {
-            imageWell.image = nil
-            return
-        }
-        else if row == pathArrays.count {
-            imageWell.image = nil
-            return
-        }
-        else {
-            imageWell.image = NSImage(contentsOf: pathArrays[row].getUrl())
+        var image:NSImage!
+        DispatchQueue.global(qos: .userInitiated).async {
+            image = NSImage(contentsOf: self.pathArrays[row].getUrl())
+            DispatchQueue.main.async {
+                self.loadingSpinner.stopAnimation(self.view)
+                self.loadingSpinner.isHidden = true
+                if self.pathArrays.count == 0 {
+                    self.imageWell.image = nil
+                    return
+                }
+                else if row == self.pathArrays.count {
+                    self.imageWell.image = nil
+                    return
+                }
+                else {
+                    self.imageWell.image = image
+                }
+            }
         }
         
     }
     func tableViewSelectionDidChange(_ notification: Notification) {
+        imageWell.image = nil
+        loadingSpinner.isHidden = false
+        loadingSpinner.startAnimation(self.view)
         updateImagePreview(forRowPath:  pathTable.selectedRow)
     }
 }

@@ -788,8 +788,12 @@
                                     <segue destination="dSG-Bf-z9U" kind="show" id="w8I-rC-KVU"/>
                                 </connections>
                             </button>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-6r-0Ox">
+                                <rect key="frame" x="108" y="247" width="16" height="16"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Qm3-6r-0Ox" firstAttribute="centerY" secondItem="EkR-9k-8TE" secondAttribute="centerY" id="AaF-Da-0Fw"/>
                             <constraint firstItem="UVy-pB-S7L" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="CWG-Ps-TTT"/>
                             <constraint firstItem="DgT-JS-fBV" firstAttribute="top" secondItem="Fko-MX-PHj" secondAttribute="bottom" constant="8" id="Ihz-m7-jrq"/>
                             <constraint firstAttribute="trailing" secondItem="Fko-MX-PHj" secondAttribute="trailing" constant="20" id="JHf-x4-og1"/>
@@ -797,6 +801,7 @@
                             <constraint firstAttribute="trailing" secondItem="DgT-JS-fBV" secondAttribute="trailing" constant="20" id="LwA-ZV-H5K"/>
                             <constraint firstAttribute="bottom" secondItem="TvB-Wk-hr8" secondAttribute="bottom" constant="20" id="Mku-Dl-7oC"/>
                             <constraint firstItem="UVy-pB-S7L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="QQY-tx-e8h"/>
+                            <constraint firstItem="Qm3-6r-0Ox" firstAttribute="centerX" secondItem="EkR-9k-8TE" secondAttribute="centerX" id="R8K-PD-0NW"/>
                             <constraint firstItem="Zd0-TQ-SsF" firstAttribute="leading" secondItem="TvB-Wk-hr8" secondAttribute="trailing" constant="12" id="SrL-KI-Kjo"/>
                             <constraint firstItem="EkR-9k-8TE" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="75" id="Tt5-vc-MxD"/>
                             <constraint firstItem="DgT-JS-fBV" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="75" id="dSS-Pv-2tK"/>
@@ -810,6 +815,7 @@
                         <outlet property="addPhotoSegment" destination="Fko-MX-PHj" id="Xtc-5A-byn"/>
                         <outlet property="createHEICimage" destination="Zd0-TQ-SsF" id="tHB-0Q-fwr"/>
                         <outlet property="imageWell" destination="EkR-9k-8TE" id="pjI-nt-04h"/>
+                        <outlet property="loadingSpinner" destination="Qm3-6r-0Ox" id="sXD-GV-M7P"/>
                         <outlet property="pathTable" destination="Glb-p8-XKq" id="JGe-9R-Ign"/>
                     </connections>
                 </viewController>
