@@ -1,18 +1,20 @@
 //
 //  NSImage.swift
-//  DynaWall
+//  wallpapper
 //
-//  Created by Shivesh M M on 26/03/19.
-//  Copyright © 2019 hyperionStudios. All rights reserved.
+//  Created by Marcin Czachurski on 11/07/2018.
+//  Copyright © 2018 Marcin Czachurski. All rights reserved.
 //
 
 import Foundation
 import AppKit
 
 extension NSImage {
-    // NSImage to CGImage converter extension
-    var CGImage : CGImage? {
-        let sourceCreate = CGImageSourceCreateWithData(self.tiffRepresentation! as CFData, nil)
-        return CGImageSourceCreateImageAtIndex(sourceCreate!, 0, nil)
+    @objc var CGImage: CGImage? {
+        get {
+            guard let imageData = self.tiffRepresentation else { return nil }
+            guard let sourceData = CGImageSourceCreateWithData(imageData as CFData, nil) else { return nil }
+            return CGImageSourceCreateImageAtIndex(sourceData, 0, nil)
+        }
     }
 }

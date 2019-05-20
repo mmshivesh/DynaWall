@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		FD3A838F224A17DF008DBFD2 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */; };
-		FD3A8395224A2CD9008DBFD2 /* HEICMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3A8394224A2CD9008DBFD2 /* HEICMaker.swift */; };
-		FD58C728224A3B4700CC9774 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD58C727224A3B4700CC9774 /* NSImage.swift */; };
 		FDC41DED224D08AE003A0C1B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC41DEC224D08AE003A0C1B /* Model.swift */; };
 		FDD21EAE22464586008251A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21EAD22464586008251A8 /* AppDelegate.swift */; };
-		FDD21EB022464586008251A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21EAF22464586008251A8 /* ViewController.swift */; };
+		FDD21EB022464586008251A8 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21EAF22464586008251A8 /* AppViewController.swift */; };
 		FDD21EB22246458A008251A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD21EB12246458A008251A8 /* Assets.xcassets */; };
 		FDD21EB52246458A008251A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD21EB32246458A008251A8 /* Main.storyboard */; };
 		FDD21EC12246458A008251A8 /* DynaWallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21EC02246458A008251A8 /* DynaWallTests.swift */; };
 		FDD21ECC2246458A008251A8 /* DynaWallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD21ECB2246458A008251A8 /* DynaWallUITests.swift */; };
+		FDF094C422573C7400E6CA8C /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF094C322573C7400E6CA8C /* Generator.swift */; };
+		FDF094CB22573D7F00E6CA8C /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF094C622573C9200E6CA8C /* NSImage.swift */; };
+		FDF094CC22573DB300E6CA8C /* SequenceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF094C922573C9900E6CA8C /* SequenceInfo.swift */; };
+		FDF094CD22573DB300E6CA8C /* SequenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF094CA22573C9900E6CA8C /* SequenceItem.swift */; };
+		FDF094CE22573DB300E6CA8C /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF094C822573C9900E6CA8C /* Apperance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +41,10 @@
 
 /* Begin PBXFileReference section */
 		FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		FD3A8394224A2CD9008DBFD2 /* HEICMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEICMaker.swift; sourceTree = "<group>"; };
-		FD58C727224A3B4700CC9774 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		FDC41DEC224D08AE003A0C1B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FDD21EAA22464586008251A8 /* DynaWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynaWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD21EAD22464586008251A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FDD21EAF22464586008251A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FDD21EAF22464586008251A8 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		FDD21EB12246458A008251A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDD21EB42246458A008251A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDD21EB62246458A008251A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +55,11 @@
 		FDD21EC72246458A008251A8 /* DynaWallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynaWallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD21ECB2246458A008251A8 /* DynaWallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynaWallUITests.swift; sourceTree = "<group>"; };
 		FDD21ECD2246458A008251A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDF094C322573C7400E6CA8C /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		FDF094C622573C9200E6CA8C /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
+		FDF094C822573C9900E6CA8C /* Apperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
+		FDF094C922573C9900E6CA8C /* SequenceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceInfo.swift; sourceTree = "<group>"; };
+		FDF094CA22573C9900E6CA8C /* SequenceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +87,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FD58C726224A3B2400CC9774 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				FD58C727224A3B4700CC9774 /* NSImage.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		FDC41DEE224D3855003A0C1B /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,16 +118,16 @@
 		FDD21EAC22464586008251A8 /* DynaWall */ = {
 			isa = PBXGroup;
 			children = (
+				FDF094C522573C9200E6CA8C /* Extensions */,
 				FDC41DEE224D3855003A0C1B /* DataStore */,
-				FD58C726224A3B2400CC9774 /* Extensions */,
-				FDD21EAD22464586008251A8 /* AppDelegate.swift */,
-				FDD21EAF22464586008251A8 /* ViewController.swift */,
-				FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */,
-				FDD21EB12246458A008251A8 /* Assets.xcassets */,
+				FDF6DFC12292FD23006B1A9B /* View Controllers */,
+				FDF094C322573C7400E6CA8C /* Generator.swift */,
 				FDD21EB32246458A008251A8 /* Main.storyboard */,
+				FDD21EAD22464586008251A8 /* AppDelegate.swift */,
 				FDD21EB62246458A008251A8 /* Info.plist */,
+				FDF094CF22573DDA00E6CA8C /* Property List */,
 				FDD21EB72246458A008251A8 /* DynaWall.entitlements */,
-				FD3A8394224A2CD9008DBFD2 /* HEICMaker.swift */,
+				FDD21EB12246458A008251A8 /* Assets.xcassets */,
 			);
 			path = DynaWall;
 			sourceTree = "<group>";
@@ -150,6 +148,33 @@
 				FDD21ECD2246458A008251A8 /* Info.plist */,
 			);
 			path = DynaWallUITests;
+			sourceTree = "<group>";
+		};
+		FDF094C522573C9200E6CA8C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FDF094C622573C9200E6CA8C /* NSImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDF094CF22573DDA00E6CA8C /* Property List */ = {
+			isa = PBXGroup;
+			children = (
+				FDF094C822573C9900E6CA8C /* Apperance.swift */,
+				FDF094C922573C9900E6CA8C /* SequenceInfo.swift */,
+				FDF094CA22573C9900E6CA8C /* SequenceItem.swift */,
+			);
+			name = "Property List";
+			sourceTree = "<group>";
+		};
+		FDF6DFC12292FD23006B1A9B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDD21EAF22464586008251A8 /* AppViewController.swift */,
+				FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,12 +307,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD58C728224A3B4700CC9774 /* NSImage.swift in Sources */,
 				FDC41DED224D08AE003A0C1B /* Model.swift in Sources */,
-				FDD21EB022464586008251A8 /* ViewController.swift in Sources */,
+				FDD21EB022464586008251A8 /* AppViewController.swift in Sources */,
 				FDD21EAE22464586008251A8 /* AppDelegate.swift in Sources */,
 				FD3A838F224A17DF008DBFD2 /* PreferencesViewController.swift in Sources */,
-				FD3A8395224A2CD9008DBFD2 /* HEICMaker.swift in Sources */,
+				FDF094CC22573DB300E6CA8C /* SequenceInfo.swift in Sources */,
+				FDF094CD22573DB300E6CA8C /* SequenceItem.swift in Sources */,
+				FDF094CB22573D7F00E6CA8C /* NSImage.swift in Sources */,
+				FDF094CE22573DB300E6CA8C /* Apperance.swift in Sources */,
+				FDF094C422573C7400E6CA8C /* Generator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
