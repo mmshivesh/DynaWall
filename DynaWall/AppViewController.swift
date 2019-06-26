@@ -25,7 +25,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     var numberOfPhotosRemaining = 16
     var darkButtonArray: [NSButton] = []
     var lightButtonArray: [NSButton] = []
-    
+    var SavePath:URL? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,9 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
         let dl = UserDefaults()
         if dl.url(forKey: "downloadLocation") == nil {
             dl.set(NSHomeDirectory() + "/" + "Downloads", forKey: "downloadLocation")
+        }
+        else {
+            SavePath = dl.url(forKey: "downloadLocation")
         }
         if dl.string(forKey: "modeSelect") == nil {
             dl.set("Automatic", forKey: "modeSelect")
@@ -64,11 +67,26 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     // MARK: "Create Wallpaper" button is pressed
     
     @IBAction func createButtonPressed(_ sender: Any) {
-        for i in 0..<currentRow{
+        for i in 0..<currentRow {
             print(pathArrays[i].rowidx)
         }
+        let savePanel = NSSavePanel()
+        savePanel.directoryURL = SavePath
+        savePanel.title = "Save File"
+        savePanel.canCreateDirectories = true
+        savePanel.showsTagField = false
+        savePanel.nameFieldStringValue = "Output.heic"
+        savePanel.allowedFileTypes = ["heic"]
+        
+        if (savePanel.runModal() == .OK) {
+            let objectCreator = DefaultGenerator(pathList: pathArrays, baseURL: (savePanel.url?.deletingLastPathComponent())!, outputFileName: savePanel.url!.lastPathComponent)
+            do {
+            try objectCreator.run()
+            } catch let error {
+                print(error)
+            }
+        }
     }
-    
     // MARK: Action to control +/- Segmented control click and to enable/disable '-'
     
     @IBAction func segmentedControlClick(_ sender: Any) {
@@ -97,7 +115,9 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
                         if currentRow == 0 {
                             firstImagePrimary = true
                         }
-                        let newRow = tableCellDataModel(row: currentRow+1, fileName: i, isPrimary: firstImagePrimary, isForDark: true, isForLight: false, altitude:0.0, azimuth: 0.0)
+                        let image = NSImage(contentsOf: i)!
+                        let isLight = image.averageColor!.isLight()!
+                        let newRow = tableCellDataModel(row: currentRow+1, fileName: i, isPrimary: firstImagePrimary, isForDark: !isLight, isForLight: isLight, altitude:0.0, azimuth: 0.0)
                         pathArrays.append(newRow)
                         currentRow+=1
                         numberOfPhotosRemaining-=1
@@ -114,10 +134,6 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
                 }
                 pathTable.reloadData()
             }
-            else
-            {
-                print("No File selected")
-            }
         }
         else {
             print("To remove row index " + String(pathTable.selectedRow))
@@ -132,6 +148,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
             fixRowNumbers()
             if pathArrays.count == 0 {
                 addPhotoSegment.setEnabled(false, forSegment: 1)
+                imageWell.image = nil
             }
             pathTable.reloadData()
             loadingSpinner.startAnimation(self.view)
@@ -185,6 +202,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     }
     func updateImagePreview(forRowPath row: Int)
     {
+        // TODO: Clear the image well when all the images have been deleted
         var image:NSImage!
         DispatchQueue.global(qos: .userInitiated).async {
             if !self.pathArrays.isEmpty && row != -1 {

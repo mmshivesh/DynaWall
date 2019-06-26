@@ -46,8 +46,9 @@ class PreferencesViewController: NSViewController{
     func enableAutomaticAndDisableCustom() {
         automaticLocationStack.layer?.opacity = 1.0
         getLocationButton.isEnabled = true
-        timeTableView.isEnabled = false
         timeTableView.layer?.opacity = 0.4
+        timeTableView.isEnabled = false
+        
     }
     func disableAutomaticAndEnableCustom() {
         automaticLocationStack.layer?.opacity = 0.4
@@ -82,5 +83,8 @@ class PreferencesViewController: NSViewController{
             disableAutomaticAndEnableCustom()
             dl.set("Custom", forKey: "modeSelect")
         }
+    }
+    @IBAction func donationButtonPressed(_ sender: Any) {
+        NSWorkspace.shared.open(URL(string:"https://paypal.me/thelucifer0509")!)
     }
 }
