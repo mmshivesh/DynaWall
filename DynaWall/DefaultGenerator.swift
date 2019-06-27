@@ -16,11 +16,17 @@ class DefaultGenerator {
     let baseURL: URL    // Destination Folder : ~/Downloads
     let outputFileName: String  // Output File name : output.heic
     let options = [kCGImageDestinationLossyCompressionQuality: 1.0]
+    let loadingSpinner: NSProgressIndicator
     
-    init(pathList: [tableCellDataModel], baseURL: URL, outputFileName: String) {
+    init(pathList: [tableCellDataModel], baseURL: URL, outputFileName: String, loadingSpinner: NSProgressIndicator) {
         self.pathList = pathList
         self.baseURL = baseURL
         self.outputFileName = outputFileName
+        self.loadingSpinner = loadingSpinner
+        DispatchQueue.main.async {
+            self.loadingSpinner.isIndeterminate = false
+            self.loadingSpinner.doubleValue = 0.0
+        }
     }
     
     func run() throws {
@@ -58,8 +64,18 @@ class DefaultGenerator {
                             }
                             
                             CGImageDestinationAddImageAndMetadata(destination, cgImage, imageMetadata, self.options as CFDictionary)
+                            DispatchQueue.main.async {
+                                self.loadingSpinner.doubleValue = Double(index+1)*100.0/16
+                            }
                         } else {
                             CGImageDestinationAddImage(destination, cgImage, self.options as CFDictionary)
+                            DispatchQueue.main.async {
+                                self.loadingSpinner.doubleValue = Double(index+1)*100.0/16
+                                if index == 15 {
+                                    self.loadingSpinner.isIndeterminate = true
+                                    self.loadingSpinner.startAnimation(self)
+                                }
+                            }
                         }
                     }
                 }
@@ -67,8 +83,19 @@ class DefaultGenerator {
                     return
                 }
                 let outputURL =  baseURL.appendingPathComponent(self.outputFileName)
+//                DispatchQueue.main.async {
+//                    self.loadingSpinner.doubleValue = 0.0
+//                    self.loadingSpinner.isIndeterminate = true
+//                    self.loadingSpinner.startAnimation(self)
+//                }
+//                DispatchQueue.main.async {
+//                    self.loadingSpinner.isHidden = true
+//                }
                 let imageData = destinationData as Data
                 try imageData.write(to: outputURL)
+                DispatchQueue.main.async {
+                    self.loadingSpinner.stopAnimation(self)
+                }
             }
         } else {
             return

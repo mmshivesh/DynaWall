@@ -9,8 +9,12 @@
 
 import Cocoa
 
-class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegate, NSWindowDelegate {
+class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegate, NSWindowDelegate, NSUserNotificationCenterDelegate {
    
+    
+    @IBOutlet weak var loadingInfoStack: NSStackView!
+    @IBOutlet weak var loadingMessageLabel: NSTextField!
+    @IBOutlet weak var loadingTableSpinner: NSProgressIndicator!
     
     @IBOutlet weak var loadingSpinner: NSProgressIndicator!
     @IBOutlet weak var addPhotoSegment: NSSegmentedControl!
@@ -25,17 +29,20 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     var numberOfPhotosRemaining = 16
     var darkButtonArray: [NSButton] = []
     var lightButtonArray: [NSButton] = []
-//    var SavePath:URL? = nil
+    var finalSavePath: URL? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NSUserNotificationCenter.default.delegate = self
         pathTable.delegate = self
         pathTable.dataSource = self
         addPhotoSegment.setEnabled(false, forSegment: 1)
         createHEICimage.isEnabled = false
         createHEICimage.title = "Add " + String(numberOfPhotosRemaining) + " images"
         loadingSpinner.isHidden = true
+        loadingInfoStack.isHidden = true
+
+//        loadingInfoStack.layer?
         // MARK: If the userDefaults is not set for the download location and the mode of obtaining the time zones, set the defaults
         
 //        let dl = UserDefaults()
@@ -59,9 +66,66 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
         NSApplication.shared.terminate(self)
         return true
     }
+    
+    // MARK: Notification stuff
+    func showNotification(forImageURL image:URL?) {
+        let doneNotification = NSUserNotification()
+        doneNotification.title = "DynaWall"
+        doneNotification.subtitle = "Your Wallpaper is ready!"
+        doneNotification.informativeText = "Saved in Folder \"\(image?.pathComponents.dropLast().last! ?? "your folder")\""
+        doneNotification.contentImage = NSImage.init(contentsOf: image!)
+        doneNotification.hasActionButton = true
+        doneNotification.soundName = NSUserNotificationDefaultSoundName
+        doneNotification.otherButtonTitle = "Dismiss"
+        doneNotification.actionButtonTitle = "More"
+        var actions = [NSUserNotificationAction]()
+        
+        let action1 = NSUserNotificationAction(identifier: "action1", title: "Set as Wallpaper")
+        let action2 = NSUserNotificationAction(identifier: "action2", title: "Show in Finder")
+        
+        actions.append(action1)
+        actions.append(action2)
+        
+        
+        doneNotification.additionalActions = actions
+        
+        doneNotification.setValue(true, forKey: "_alwaysShowAlternateActionMenu")
+        let notificationCenter = NSUserNotificationCenter.default
+        notificationCenter.deliver(doneNotification)
+    }
+    
+    public func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        
+        print("Yup!")
+        switch notification.activationType {
+        case .additionalActionClicked:
+            guard let title = notification.additionalActivationAction?.title else {return}
+            print("Clicked \(title)")
+            if notification.additionalActivationAction?.identifier == "action1" {
+                print("Setting Wallpaper...")
+                try! NSWorkspace.shared.setDesktopImageURL(finalSavePath!, for: NSScreen.main!, options: [:])
+            }
+            else {
+                NSWorkspace.shared.activateFileViewerSelecting([finalSavePath!])
+                
+            }
+        case .actionButtonClicked:
+            print("Action button ")
+        case .contentsClicked:
+            NSWorkspace.shared.activateFileViewerSelecting([finalSavePath!])
+        default:
+            return
+        }
+    }
+    
     func changeCreateButtonTitle() {
         if numberOfPhotosRemaining == 0 {
             createHEICimage.title = "Create Wallpaper"
+            createHEICimage.isEnabled = true
         }
         else if numberOfPhotosRemaining != 1 {
             createHEICimage.title = "Add " + String(numberOfPhotosRemaining) + " Images"
@@ -72,11 +136,15 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     }
     
     // MARK: "Create Wallpaper" button is pressed
-    
-    @IBAction func createButtonPressed(_ sender: Any) {
-        for i in 0..<currentRow {
-            print(pathArrays[i].rowidx)
+    func saveFinalImageAsync(_ url: URL?) {
+        let objectCreator = DefaultGenerator(pathList: pathArrays, baseURL: (url?.deletingLastPathComponent())!, outputFileName: url!.lastPathComponent, loadingSpinner: self.loadingTableSpinner)
+        do {
+            try objectCreator.run()
+        } catch let error {
+            print(error)
         }
+    }
+    @IBAction func createButtonPressed(_ sender: Any) {
         let savePanel = NSSavePanel()
 //        savePanel.directoryURL = SavePath
         savePanel.title = "Save File"
@@ -86,17 +154,60 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
         savePanel.allowedFileTypes = ["heic"]
         
         if (savePanel.runModal() == .OK) {
-            let objectCreator = DefaultGenerator(pathList: pathArrays, baseURL: (savePanel.url?.deletingLastPathComponent())!, outputFileName: savePanel.url!.lastPathComponent)
-            do {
-            try objectCreator.run()
-            } catch let error {
-                print(error)
+            finalSavePath = savePanel.url
+            loadingMessageLabel.stringValue = "Saving Image..."
+            loadingInfoStack.isHidden = false
+            loadingTableSpinner.usesThreadedAnimation = true
+            loadingTableSpinner.startAnimation(self)
+            DispatchQueue.global(qos: .background).async {
+                self.saveFinalImageAsync(savePanel.url)
+                DispatchQueue.main.async {
+                    self.loadingTableSpinner.stopAnimation(self)
+                    self.loadingInfoStack.isHidden = true
+                    self.showNotification(forImageURL: savePanel.url)
+                }
             }
         }
     }
     
     // MARK: Action to control +/- Segmented control click and to enable/disable '-'
-    
+    func loadAsync(withUrls urls: [URL]) {
+        for i in urls {
+//            var firstImagePrimary = false
+//            // TODO: Robust fix needed
+//            if currentRow == 0 {
+//                firstImagePrimary = true
+//            }
+            let image = NSImage(contentsOf: i)!
+            let isLight = image.averageColor!.isLight()!
+            DispatchQueue.main.async {
+                let newRow = tableCellDataModel(row: self.currentRow+1, fileName: i, isPrimary: false, isForDark: !isLight, isForLight: isLight, altitude:0.0, azimuth: 0.0)
+                self.pathArrays.append(newRow)
+                self.currentRow+=1
+                self.numberOfPhotosRemaining-=1
+            }
+        }
+        
+    }
+    func setupLoadAsync(urls: [URL]) {
+        pathTable.isEnabled = false
+        loadingMessageLabel.stringValue = "Loading Images..."
+        loadingInfoStack.isHidden = false
+        loadingTableSpinner.usesThreadedAnimation = true
+        loadingTableSpinner.startAnimation(self)
+        DispatchQueue.global(qos:.background).async {
+            self.loadAsync(withUrls: urls)
+            DispatchQueue.main.async {
+                self.changeCreateButtonTitle()
+                self.pathTable.isEnabled = true
+                self.loadingTableSpinner.stopAnimation(self)
+                self.loadingInfoStack.isHidden = true
+                if !self.pathArrays[0].isPrimary {
+                    self.pathArrays[0].isPrimary = true
+                }
+            }
+        }
+    }
     @IBAction func segmentedControlClick(_ sender: Any) {
         if pathArrays.count == 16 {
             createHEICimage.isEnabled = true
@@ -116,21 +227,13 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
             {
                 if numberOfPhotosRemaining < dialog.urls.count {
                     print("Count Exceeds 16")
+                    let cutTillTheRemaining = Array(dialog.urls[0..<numberOfPhotosRemaining])
+                    print(cutTillTheRemaining)
+                    // Load the cutTillTheRemaining array instead of dialog.urls
+                    setupLoadAsync(urls: cutTillTheRemaining)
                 }
                 else {
-                    for i in dialog.urls {
-                        var firstImagePrimary = false
-                        if currentRow == 0 {
-                            firstImagePrimary = true
-                        }
-                        let image = NSImage(contentsOf: i)!
-                        let isLight = image.averageColor!.isLight()!
-                        let newRow = tableCellDataModel(row: currentRow+1, fileName: i, isPrimary: firstImagePrimary, isForDark: !isLight, isForLight: isLight, altitude:0.0, azimuth: 0.0)
-                        pathArrays.append(newRow)
-                        currentRow+=1
-                        numberOfPhotosRemaining-=1
-                    }
-                    changeCreateButtonTitle()
+                    setupLoadAsync(urls: dialog.urls)
                 }
                 // MARK: Enable '-' Segment if disabled
                 if !addPhotoSegment.isEnabled(forSegment: 1) {

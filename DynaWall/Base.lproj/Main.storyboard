@@ -530,7 +530,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dGq-dZ-CHn">
                                 <rect key="frame" x="153" y="54" width="34" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="(WIP)" id="o87-CL-52j">
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1193,14 +1193,40 @@ DQ
                                     <action selector="helpButtonPressed:" target="XfG-lQ-9wD" id="eiA-bO-xXq"/>
                                 </connections>
                             </button>
+                            <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqF-Wb-vuQ">
+                                <rect key="frame" x="555" y="355" width="57" height="17"/>
+                                <subviews>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-Lu-74U">
+                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TkZ-xQ-vmE">
+                                        <rect key="frame" x="22" y="0.0" width="37" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="7Js-1X-JB8">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Zd0-TQ-SsF" firstAttribute="top" secondItem="O3L-uV-YlJ" secondAttribute="bottom" constant="12" id="13N-7D-QWz"/>
                             <constraint firstItem="Qm3-6r-0Ox" firstAttribute="centerY" secondItem="EkR-9k-8TE" secondAttribute="centerY" id="AaF-Da-0Fw"/>
                             <constraint firstItem="UVy-pB-S7L" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="CWG-Ps-TTT"/>
                             <constraint firstItem="Zd0-TQ-SsF" firstAttribute="leading" secondItem="TvB-Wk-hr8" secondAttribute="trailing" constant="12" id="Fib-cS-PxR"/>
+                            <constraint firstItem="rqF-Wb-vuQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="Gqq-cz-gHm"/>
                             <constraint firstAttribute="trailing" secondItem="Fko-MX-PHj" secondAttribute="trailing" constant="20" id="JHf-x4-og1"/>
                             <constraint firstAttribute="bottom" secondItem="TvB-Wk-hr8" secondAttribute="bottom" constant="20" id="Mku-Dl-7oC"/>
+                            <constraint firstItem="Fko-MX-PHj" firstAttribute="leading" secondItem="rqF-Wb-vuQ" secondAttribute="trailing" constant="17" id="NBi-wK-5Br"/>
                             <constraint firstItem="UVy-pB-S7L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="QQY-tx-e8h"/>
                             <constraint firstItem="Qm3-6r-0Ox" firstAttribute="centerX" secondItem="EkR-9k-8TE" secondAttribute="centerX" id="R8K-PD-0NW"/>
                             <constraint firstItem="EkR-9k-8TE" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="75" id="Tt5-vc-MxD"/>
@@ -1219,7 +1245,10 @@ DQ
                         <outlet property="addPhotoSegment" destination="Fko-MX-PHj" id="Xtc-5A-byn"/>
                         <outlet property="createHEICimage" destination="Zd0-TQ-SsF" id="tHB-0Q-fwr"/>
                         <outlet property="imageWell" destination="EkR-9k-8TE" id="pjI-nt-04h"/>
+                        <outlet property="loadingInfoStack" destination="rqF-Wb-vuQ" id="EiX-3g-tC5"/>
+                        <outlet property="loadingMessageLabel" destination="TkZ-xQ-vmE" id="X2v-p2-qXN"/>
                         <outlet property="loadingSpinner" destination="Qm3-6r-0Ox" id="sXD-GV-M7P"/>
+                        <outlet property="loadingTableSpinner" destination="UsH-Lu-74U" id="pWB-xI-5QO"/>
                         <outlet property="pathTable" destination="e3k-rm-zrM" id="98P-92-y4K"/>
                     </connections>
                 </viewController>
@@ -1240,6 +1269,6 @@ DQ
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pCg-no-8MD"/>
+        <segue reference="W19-eA-TSc"/>
     </inferredMetricsTieBreakers>
 </document>
