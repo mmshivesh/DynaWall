@@ -9,7 +9,7 @@
 
 import Cocoa
 
-class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegate {
+class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDelegate, NSWindowDelegate {
    
     
     @IBOutlet weak var loadingSpinner: NSProgressIndicator!
@@ -52,6 +52,13 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     }
     // MARK: Change title of create wallpaper button
     
+    override func viewDidAppear() {
+        self.view.window?.delegate = self
+    }
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+        NSApplication.shared.terminate(self)
+        return true
+    }
     func changeCreateButtonTitle() {
         if numberOfPhotosRemaining == 0 {
             createHEICimage.title = "Create Wallpaper"
