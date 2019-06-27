@@ -132,6 +132,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
                 // If you diligently add 16 images in one go
                 if pathArrays.count == 16 {
                     createHEICimage.isEnabled = true
+                    addPhotoSegment.setEnabled(false, forSegment: 0)
                 }
                 pathTable.reloadData()
             }
