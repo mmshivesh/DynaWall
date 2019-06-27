@@ -25,7 +25,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     var numberOfPhotosRemaining = 16
     var darkButtonArray: [NSButton] = []
     var lightButtonArray: [NSButton] = []
-    var SavePath:URL? = nil
+//    var SavePath:URL? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +38,16 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
         loadingSpinner.isHidden = true
         // MARK: If the userDefaults is not set for the download location and the mode of obtaining the time zones, set the defaults
         
-        let dl = UserDefaults()
-        if dl.url(forKey: "downloadLocation") == nil {
-            dl.set(NSHomeDirectory() + "/" + "Downloads", forKey: "downloadLocation")
-        }
-        else {
-            SavePath = dl.url(forKey: "downloadLocation")
-        }
-        if dl.string(forKey: "modeSelect") == nil {
-            dl.set("Automatic", forKey: "modeSelect")
-        }
+//        let dl = UserDefaults()
+//        if dl.url(forKey: "downloadLocation") == nil {
+//            dl.set(NSHomeDirectory() + "/" + "Downloads", forKey: "downloadLocation")
+//        }
+//        else {
+//            SavePath = dl.url(forKey: "downloadLocation")
+//        }
+//        if dl.string(forKey: "modeSelect") == nil {
+//            dl.set("Automatic", forKey: "modeSelect")
+//        }
         
     }
     // MARK: Change title of create wallpaper button
@@ -71,7 +71,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
             print(pathArrays[i].rowidx)
         }
         let savePanel = NSSavePanel()
-        savePanel.directoryURL = SavePath
+//        savePanel.directoryURL = SavePath
         savePanel.title = "Save File"
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = false
@@ -87,6 +87,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
             }
         }
     }
+    
     // MARK: Action to control +/- Segmented control click and to enable/disable '-'
     
     @IBAction func segmentedControlClick(_ sender: Any) {
@@ -158,9 +159,17 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
         }
     }
     
+    
+    @IBAction func helpButtonPressed(_ sender: Any) {
+        let helpButton = sender as! NSButton
+        let popover = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "HelpViewController") as! NSViewController
+        self.present(popover, asPopoverRelativeTo: helpButton.bounds, of: helpButton, preferredEdge: NSRectEdge.minY, behavior: .transient)
+    }
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return pathArrays.count
     }
+    
     @IBAction func darkCheckBoxPressed(_ sender: Any) {
         let senderButton = sender as! NSButton
         let buttonRow = senderButton.superview?.superview as! NSTableRowView

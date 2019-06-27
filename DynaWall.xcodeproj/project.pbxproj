@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FD3A838F224A17DF008DBFD2 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */; };
-		FD685B152293DAB000FCC94E /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD685B142293DAB000FCC94E /* HelpViewController.swift */; };
 		FD9777192295256400BCD734 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9777182295256400BCD734 /* NSColor.swift */; };
 		FDC354D622C39B550056B92C /* readDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC354D522C39B550056B92C /* readDefaults.swift */; };
 		FDC354D822C3A0800056B92C /* DefaultGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC354D722C3A0800056B92C /* DefaultGenerator.swift */; };
@@ -41,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		FD685B142293DAB000FCC94E /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		FD9777182295256400BCD734 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		FDC354D522C39B550056B92C /* readDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readDefaults.swift; sourceTree = "<group>"; };
 		FDC354D722C3A0800056B92C /* DefaultGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGenerator.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			children = (
 				FDD21EAF22464586008251A8 /* AppViewController.swift */,
 				FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */,
-				FD685B142293DAB000FCC94E /* HelpViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -178,6 +175,8 @@
 			buildPhases = (
 				FDD21EA622464586008251A8 /* Sources */,
 				FDD21EA722464586008251A8 /* Frameworks */,
+				FDB2401622C3E934000EF211 /* ShellScript */,
+				FDB2401722C3EA0C000EF211 /* ShellScript */,
 				FDD21EA822464586008251A8 /* Resources */,
 			);
 			buildRules = (
@@ -294,6 +293,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FDB2401622C3E934000EF211 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+		FDB2401722C3EA0C000EF211 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "version=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nsubversion=$(git rev-list --count HEAD)\nnewversion=`echo $version | awk -F \".\" '{print $1 \".'$subversion'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $newversion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FDD21EA622464586008251A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -306,7 +342,6 @@
 				FD3A838F224A17DF008DBFD2 /* PreferencesViewController.swift in Sources */,
 				FDF094CB22573D7F00E6CA8C /* NSImage.swift in Sources */,
 				FD9777192295256400BCD734 /* NSColor.swift in Sources */,
-				FD685B152293DAB000FCC94E /* HelpViewController.swift in Sources */,
 				FDC354D822C3A0800056B92C /* DefaultGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +516,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -499,6 +535,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hyperionStudios.DynaWall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

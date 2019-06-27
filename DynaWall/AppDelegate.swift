@@ -19,6 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         
     }
-
+    @IBAction func donationButtonPressed(_ sender: Any) {
+        NSWorkspace.shared.open(URL(string:"https://www.paypal.me/thelucifer0509/USD1.5")!)
+    }
 }
 
