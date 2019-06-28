@@ -1,8 +1,9 @@
 //
-//  DefaultGenerator.swift
+//  AutomaticContainerBuilder.swift
 //  DynaWall
 //
 //  Created by Shivesh M M on 26/6/19.
+//  Based on Wallpapper
 //  Copyright © 2019 hyperionStudios. All rights reserved.
 //
 
@@ -10,19 +11,21 @@ import Foundation
 import AppKit
 import AVFoundation
 
-class DefaultGenerator {
+class AutomaticContainerBuilder {
     
     var pathList: [tableCellDataModel]
     let baseURL: URL    // Destination Folder : ~/Downloads
     let outputFileName: String  // Output File name : output.heic
     let options = [kCGImageDestinationLossyCompressionQuality: 1.0]
     let loadingSpinner: NSProgressIndicator
+    let label: NSTextField
     
-    init(pathList: [tableCellDataModel], baseURL: URL, outputFileName: String, loadingSpinner: NSProgressIndicator) {
+    init(pathList: [tableCellDataModel], baseURL: URL, outputFileName: String, loadingSpinner: NSProgressIndicator, withInfoLabel label: NSTextField) {
         self.pathList = pathList
         self.baseURL = baseURL
         self.outputFileName = outputFileName
         self.loadingSpinner = loadingSpinner
+        self.label = label
         DispatchQueue.main.async {
             self.loadingSpinner.isIndeterminate = false
             self.loadingSpinner.doubleValue = 0.0
@@ -74,6 +77,7 @@ class DefaultGenerator {
                                 if index == 15 {
                                     self.loadingSpinner.isIndeterminate = true
                                     self.loadingSpinner.startAnimation(self)
+                                    self.label.stringValue = "Saving HEIC Image..."
                                 }
                             }
                         }
@@ -83,14 +87,6 @@ class DefaultGenerator {
                     return
                 }
                 let outputURL =  baseURL.appendingPathComponent(self.outputFileName)
-//                DispatchQueue.main.async {
-//                    self.loadingSpinner.doubleValue = 0.0
-//                    self.loadingSpinner.isIndeterminate = true
-//                    self.loadingSpinner.startAnimation(self)
-//                }
-//                DispatchQueue.main.async {
-//                    self.loadingSpinner.isHidden = true
-//                }
                 let imageData = destinationData as Data
                 try imageData.write(to: outputURL)
                 DispatchQueue.main.async {

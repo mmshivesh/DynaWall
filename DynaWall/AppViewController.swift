@@ -142,7 +142,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     
     // MARK: "Create Wallpaper" button is pressed
     func saveFinalImageAsync(_ url: URL?) {
-        let objectCreator = DefaultGenerator(pathList: pathArrays, baseURL: (url?.deletingLastPathComponent())!, outputFileName: url!.lastPathComponent, loadingSpinner: self.loadingTableSpinner)
+        let objectCreator = AutomaticContainerBuilder(pathList: pathArrays, baseURL: (url?.deletingLastPathComponent())!, outputFileName: url!.lastPathComponent, loadingSpinner: self.loadingTableSpinner, withInfoLabel: self.loadingMessageLabel)
         do {
             try objectCreator.run()
         } catch let error {
@@ -160,7 +160,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
         
         if (savePanel.runModal() == .OK) {
             finalSavePath = savePanel.url
-            loadingMessageLabel.stringValue = "Saving Image..."
+            loadingMessageLabel.stringValue = "Creating HEIC Container"
             loadingInfoStack.isHidden = false
             loadingTableSpinner.usesThreadedAnimation = true
             loadingTableSpinner.startAnimation(self)

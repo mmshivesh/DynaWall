@@ -1195,17 +1195,17 @@ DQ
                             <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqF-Wb-vuQ">
                                 <rect key="frame" x="555" y="355" width="57" height="17"/>
                                 <subviews>
-                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-Lu-74U">
-                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                                    </progressIndicator>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TkZ-xQ-vmE">
-                                        <rect key="frame" x="22" y="0.0" width="37" height="17"/>
+                                        <rect key="frame" x="-2" y="0.0" width="37" height="17"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="7Js-1X-JB8">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-Lu-74U">
+                                        <rect key="frame" x="41" y="0.0" width="16" height="16"/>
+                                    </progressIndicator>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -1268,6 +1268,6 @@ DQ
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pCg-no-8MD"/>
+        <segue reference="W19-eA-TSc"/>
     </inferredMetricsTieBreakers>
 </document>

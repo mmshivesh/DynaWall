@@ -24,7 +24,7 @@ class PreferencesViewController: NSViewController{
     
     
     @IBAction func getLocationButtonPressed(_ sender: Any) {
-        
+        // TODO: Custom implementation
     }
 
     
@@ -102,7 +102,7 @@ class PreferencesViewController: NSViewController{
 //        }
     }
     @IBAction func donationButtonPressed(_ sender: Any) {
-        NSWorkspace.shared.open(URL(string:"https://www.paypal.me/thelucifer0509/USD1.5")!)
+        NSWorkspace.shared.open(URL(string:"https://www.paypal.me/thelucifer0509/USD")!)
     }
     
     @IBAction func automaticHelpButtonPressed(_ sender: Any) {
