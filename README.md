@@ -16,7 +16,8 @@ A native and gorgeous looking macOS app to create Dynamic Wallpapers. Use your f
 - [ ] Drag-and-drop Image reorder support
 - [ ] Drag-and-drop Image importing
 - [ ] Image loading and final image saving in background threads to prevent UI lockup
-- [ ] Toast support to report statuses
+- [x] Toast support to report statuses
 - [ ] apple_desktop:h24 support
 - [ ] Get location from user and time information from images
+- [x] Notification support
 - [ ] Code cleanup
