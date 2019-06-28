@@ -426,7 +426,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="-60"/>
+            <point key="canvasLocation" x="-101" y="-34"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -470,7 +470,7 @@
                 </windowController>
                 <customObject id="IEc-BA-sfV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="347"/>
+            <point key="canvasLocation" x="927" y="339"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0K0-aa-kdC">
@@ -788,7 +788,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j9q-SO-uOw">
                                 <rect key="frame" x="111" y="298" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="X6k-BM-aM6">
+                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" refusesFirstResponder="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="X6k-BM-aM6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -904,7 +904,7 @@
                 </viewController>
                 <customObject id="TMc-CN-GBm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-515" y="1098"/>
+            <point key="canvasLocation" x="-511" y="1074"/>
         </scene>
         <!--App View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -975,7 +975,7 @@ DQ
                                     <rect key="frame" x="1" y="0.0" width="465" height="291"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="medium" headerView="9De-iF-WqD" viewBased="YES" id="e3k-rm-zrM">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="medium" headerView="9De-iF-WqD" viewBased="YES" id="e3k-rm-zrM">
                                             <rect key="frame" x="0.0" y="0.0" width="465" height="266"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1067,7 +1067,6 @@ DQ
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="key"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="ibn-kw-eCa">
@@ -1260,7 +1259,7 @@ DQ
                 </arrayController>
                 <userDefaultsController representsSharedInstance="YES" id="YGt-2U-Ibg"/>
             </objects>
-            <point key="canvasLocation" x="75" y="949"/>
+            <point key="canvasLocation" x="75" y="886"/>
         </scene>
     </scenes>
     <resources>
@@ -1269,6 +1268,6 @@ DQ
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W19-eA-TSc"/>
+        <segue reference="pCg-no-8MD"/>
     </inferredMetricsTieBreakers>
 </document>

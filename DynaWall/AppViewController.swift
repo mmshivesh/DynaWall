@@ -22,9 +22,9 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     @IBOutlet weak var imageWell: NSImageView!
     @IBOutlet weak var pathTable: NSTableView!
     
-    
-    
     @objc dynamic var pathArrays:[tableCellDataModel] = []
+    
+    var addingToEmptyTable = true
     var currentRow:Int = 0
     var numberOfPhotosRemaining = 16
     var darkButtonArray: [NSButton] = []
@@ -126,12 +126,17 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
         if numberOfPhotosRemaining == 0 {
             createHEICimage.title = "Create Wallpaper"
             createHEICimage.isEnabled = true
+            addPhotoSegment.setEnabled(false, forSegment: 0)
         }
         else if numberOfPhotosRemaining != 1 {
             createHEICimage.title = "Add " + String(numberOfPhotosRemaining) + " Images"
+            createHEICimage.isEnabled = false
+            addPhotoSegment.setEnabled(true, forSegment: 0)
         }
         else {
             createHEICimage.title = "Add " + String(numberOfPhotosRemaining) + " Image"
+            createHEICimage.isEnabled = false
+            addPhotoSegment.setEnabled(true, forSegment: 0)
         }
     }
     
@@ -205,16 +210,21 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
                 if !self.pathArrays[0].isPrimary {
                     self.pathArrays[0].isPrimary = true
                 }
+                if self.addingToEmptyTable {
+                    let indexSet = IndexSet(integer: 0)
+                    self.pathTable.selectRowIndexes(indexSet, byExtendingSelection: false)
+                    self.addingToEmptyTable = false
+                }
             }
         }
     }
     @IBAction func segmentedControlClick(_ sender: Any) {
-        if pathArrays.count == 16 {
-            createHEICimage.isEnabled = true
-        }
-        else {
-            createHEICimage.isEnabled = false
-        }
+//        if pathArrays.count == 16 {
+//            createHEICimage.isEnabled = true
+//        }
+//        else {
+//            createHEICimage.isEnabled = false
+//        }
         if addPhotoSegment.indexOfSelectedItem == 0 {
             let dialog = NSOpenPanel()
             dialog.title = "Select Image file(s)"
@@ -235,6 +245,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
                 else {
                     setupLoadAsync(urls: dialog.urls)
                 }
+                
                 // MARK: Enable '-' Segment if disabled
                 if !addPhotoSegment.isEnabled(forSegment: 1) {
                     addPhotoSegment.setEnabled(true, forSegment: 1)
@@ -261,6 +272,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
             if pathArrays.count == 0 {
                 addPhotoSegment.setEnabled(false, forSegment: 1)
                 imageWell.image = nil
+                addingToEmptyTable = true
             }
             pathTable.reloadData()
             loadingSpinner.startAnimation(self.view)
