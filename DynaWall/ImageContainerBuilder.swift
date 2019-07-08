@@ -1,5 +1,5 @@
 //
-//  AutomaticContainerBuilder.swift
+//  ImageContainerBuilder.swift
 //  DynaWall
 //
 //  Created by Shivesh M M on 26/6/19.
@@ -11,7 +11,7 @@ import Foundation
 import AppKit
 import AVFoundation
 
-class AutomaticContainerBuilder {
+class ImageContainerBuilder {
     
     var pathList: [tableCellDataModel]
     let baseURL: URL    // Destination Folder : ~/Downloads
