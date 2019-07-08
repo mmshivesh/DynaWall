@@ -142,7 +142,7 @@ class AppViewController: NSViewController,NSTableViewDataSource, NSTableViewDele
     
     // MARK: "Create Wallpaper" button is pressed
     func saveFinalImageAsync(_ url: URL?) {
-        let objectCreator = AutomaticContainerBuilder(pathList: pathArrays, baseURL: (url?.deletingLastPathComponent())!, outputFileName: url!.lastPathComponent, loadingSpinner: self.loadingTableSpinner, withInfoLabel: self.loadingMessageLabel)
+        let objectCreator = ImageContainerBuilder(pathList: pathArrays, baseURL: (url?.deletingLastPathComponent())!, outputFileName: url!.lastPathComponent, loadingSpinner: self.loadingTableSpinner, withInfoLabel: self.loadingMessageLabel)
         do {
             try objectCreator.run()
         } catch let error {

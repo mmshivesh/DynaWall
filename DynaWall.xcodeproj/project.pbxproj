@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD3A838F224A17DF008DBFD2 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */; };
-		FD4D637122C5F09B001F66B9 /* AutomaticContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D637022C5F09A001F66B9 /* AutomaticContainerBuilder.swift */; };
+		FD886A4422D33CCC00154CD4 /* ImageContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD886A4322D33CCC00154CD4 /* ImageContainerBuilder.swift */; };
 		FD9777192295256400BCD734 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9777182295256400BCD734 /* NSColor.swift */; };
 		FDC354D622C39B550056B92C /* readDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC354D522C39B550056B92C /* readDefaults.swift */; };
 		FDC41DED224D08AE003A0C1B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC41DEC224D08AE003A0C1B /* Model.swift */; };
@@ -40,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		FD3A838E224A17DF008DBFD2 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		FD4D637022C5F09A001F66B9 /* AutomaticContainerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticContainerBuilder.swift; sourceTree = "<group>"; };
+		FD886A4322D33CCC00154CD4 /* ImageContainerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageContainerBuilder.swift; path = /Users/Shivesh/Documents/Code/Xcode/DynaWall/DynaWall/ImageContainerBuilder.swift; sourceTree = "<absolute>"; };
 		FD9777182295256400BCD734 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		FDC354D522C39B550056B92C /* readDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readDefaults.swift; sourceTree = "<group>"; };
 		FDC41DEC224D08AE003A0C1B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				FDF094C522573C9200E6CA8C /* Extensions */,
 				FDC41DEE224D3855003A0C1B /* DataStore */,
 				FDF6DFC12292FD23006B1A9B /* View Controllers */,
-				FD4D637022C5F09A001F66B9 /* AutomaticContainerBuilder.swift */,
+				FD886A4322D33CCC00154CD4 /* ImageContainerBuilder.swift */,
 				FDC354D522C39B550056B92C /* readDefaults.swift */,
 				FDD21EB32246458A008251A8 /* Main.storyboard */,
 				FDD21EAD22464586008251A8 /* AppDelegate.swift */,
@@ -339,9 +339,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDC41DED224D08AE003A0C1B /* Model.swift in Sources */,
-				FD4D637122C5F09B001F66B9 /* AutomaticContainerBuilder.swift in Sources */,
 				FDC354D622C39B550056B92C /* readDefaults.swift in Sources */,
 				FDD21EB022464586008251A8 /* AppViewController.swift in Sources */,
+				FD886A4422D33CCC00154CD4 /* ImageContainerBuilder.swift in Sources */,
 				FDD21EAE22464586008251A8 /* AppDelegate.swift in Sources */,
 				FD3A838F224A17DF008DBFD2 /* PreferencesViewController.swift in Sources */,
 				FDF094CB22573D7F00E6CA8C /* NSImage.swift in Sources */,
